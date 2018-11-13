@@ -1,8 +1,8 @@
 # this program has the same requirements as drumTest
 # to execute it, in the canopy editor, go to Run then press reset
 # hit the green arrow to start it listening for processing
-# then start the drumTestclient processing sketch
-# you will hear the drumTest until you kill the processing sketch
+# then start the drumTest processing sketch
+# you will hear the drumTest ctcsound output until you kill the processing sketch
 
 import ctcsound
 cs = ctcsound.Csound()
