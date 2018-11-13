@@ -1,5 +1,6 @@
 # BeatBearing
-Hi 
+Hi  
+   
 Three or four or five different programs are being run in this first attempt to create software for the beat bearing.
 
 They are in three folders: arduino, processing and python.
