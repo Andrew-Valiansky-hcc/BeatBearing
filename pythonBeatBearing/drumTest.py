@@ -2,7 +2,7 @@
 #	ctcsound.py
 #	drumMachine.orc
 #	drumbTest.sco
-# These three files (and some jupyte files explaining things) are found in the file ctcsound.zip
+# These three files (and some jupyter files explaining/testing things) are found in the file ctcsound.zip
 
 import ctcsound
 cs = ctcsound.Csound()
