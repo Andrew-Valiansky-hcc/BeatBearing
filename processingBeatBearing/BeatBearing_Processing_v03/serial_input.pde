@@ -2,11 +2,11 @@
 void serialSetup() 
 {
   // print out available serial inputs
-  println(Serial.list());
+  printArray(Serial.list());
   
   // set the serial input
   // run this program once, and then copy and paste from the list printed out
-  myPort = new Serial(this, "/dev/tty.usbserial-A40015eI", 9600);
+  myPort = new Serial(this, 9600);
   
   // buffer 6 bytes at a time
   myPort.buffer(6);
@@ -70,7 +70,7 @@ void serialLoop()
 
   // Print out the inputArray to check that it's working
   // uncomment to use
-  // println(inputArray);
+  println(inputArray);
 
 
   // Mapping between serial input and ball position
@@ -123,7 +123,7 @@ void serialLoop()
   //------TEST BEAT 1------
   // plays one beat in each row
   // uncomment to test
-  
+  /*
   // cowbell
    bArray[6].on = true;
    // hihat
@@ -132,13 +132,13 @@ void serialLoop()
    bArray[18].on = true;
    // kick
    bArray[24].on = true;
-  
+  */
 
 
   //------TEST BEAT 2------
   // plays a simple beat
   // uncomment to test
-  /*
+  
   // cowbell
    bArray[5].on = true;
    bArray[6].on = true;
@@ -158,7 +158,7 @@ void serialLoop()
    bArray[26].on = true;
    bArray[28].on = true;
    bArray[30].on = true;
-   */
+   
 }
 
 
@@ -182,5 +182,7 @@ void serialEvent(Serial p) {
   inBuffer[4] = inByte[(stopPos+5)%6];
 
   // print out the input byte if needed for debugging
-  // println(inByte);
+  //println(inByte);
+  
+  
 }

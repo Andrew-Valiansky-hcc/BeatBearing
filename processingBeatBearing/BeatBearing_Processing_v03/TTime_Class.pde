@@ -19,14 +19,6 @@ class TTime {
   void update() {
     // last time becomes current time
     last = current;
-    
-    // work out current time from sequencer
-    // this will be between 0 and 1
-    current = (sequencer.getTickPosition() / 1024.0) + (64.0/1024.0);
-    if (current > 1.0) {
-      // if the time is greater than 1 then minus 1 from current time
-       current -= 1.0; 
-    }
 
     // calculate the current position in pixels
     pos = x1 - (xGap/2) + (current * (xSize + xGap));

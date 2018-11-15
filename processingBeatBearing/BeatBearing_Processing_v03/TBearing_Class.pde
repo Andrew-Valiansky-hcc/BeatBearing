@@ -16,7 +16,7 @@ class TBearing {
   // the ringstate controls the fade of the ring around each ball
   float ringState = 255;
 
-  Note ballsNote;
+  
 
   TBearing(float x, float y, float t, int s) {
     colPos = int(x);
@@ -27,13 +27,6 @@ class TBearing {
     on =  false;
     timePos = t;  
     triggered = false;
-    sound = s;
-
-    // create the Note for each ball
-    ballsNote = new Note(0, 127,40);
-
-    // then add at correct position. 
-    track.addEvent (ballsNote, rowPos ,colPos);  
   }
 
 
@@ -45,10 +38,6 @@ class TBearing {
       // then untrigger       
       triggered = false;
 
-      // create new off note, by setting pitch to zero
-      // the off note is actually MIDI note 0 or "C-2", 
-      // so make sure no sound is assigned to this in your MIDI sampler!
-      ballsNote.setPitch(0);            
     }    
 
     if (time.current < time.last) {          
@@ -61,10 +50,7 @@ class TBearing {
     // adjust the value if needed
     ringState *= 0.94;
 
-    // This If statement is a bit of a fudge to get the visuals to sync with the sound properly
-    if ((timePos-0.02 <= (time.current)) && !triggered && on){
-      ballsNote.setPitch((3-rowPos) + 36);
-    }
+   
     
     // if the time line has gone past or is on the ball, 
     // and the note hasn't already been triggered,

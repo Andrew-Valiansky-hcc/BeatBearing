@@ -19,16 +19,12 @@
 //------------------------------------
 
 // Import libraries. Make sure you have installed OscP5 and ProMIDI
-import com.jogamp.opengl.GL2; 
+
 import processing.serial.*;
-import themidibus.*;
+
 
 // Sequencer variables
-MidiBus sequencer;                                                                  
-MidiBus track;
-MidiBus song;
-MidiBus midiIO;
-MidiBus midiOut;
+
 int endPoint = 1024;
 boolean sequencerIsSetup = false;
 // bpm runs at half of this speed
@@ -106,9 +102,6 @@ void setup() {
   // Setup the serial connection 
   serialSetup();
 
-  // Setup the MIDI sequencer
-  sequencerSetup();
-
   // This for-loop sets up the "Bearing" array
   float colPos = 0;
   float rowPos = 0;
@@ -147,7 +140,7 @@ void draw() {
   fill(0);
 
   // Only start the main loop if everything is setup
-  if(sequencerIsSetup && serialIsSetup) {
+  if(serialIsSetup) {
 
     serialLoop();
 
@@ -166,14 +159,7 @@ void draw() {
 
     //green rectangle for helping align the software grid with your hardware grid
     // un-comment to turn  on the grid
-    //setGrid(); 
+    setGrid(); 
 
   }
-}
-
-public void init() { 
-  // Remove top bar from screen   
-  frame.removeNotify(); 
-  frame.setUndecorated(true); 
-  frame.addNotify();   
 }
