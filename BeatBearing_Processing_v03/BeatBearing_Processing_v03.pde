@@ -159,7 +159,7 @@ void draw() {
 
     //green rectangle for helping align the software grid with your hardware grid
     // un-comment to turn  on the grid
-    setGrid(); 
+    //setGrid(); 
 
   }
 }

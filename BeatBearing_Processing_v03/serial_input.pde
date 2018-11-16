@@ -6,7 +6,7 @@ void serialSetup()
   
   // set the serial input
   // run this program once, and then copy and paste from the list printed out
-  myPort = new Serial(this, 9600);
+  myPort = new Serial(this, "COM11", 9600);
   
   // buffer 6 bytes at a time
   myPort.buffer(6);
