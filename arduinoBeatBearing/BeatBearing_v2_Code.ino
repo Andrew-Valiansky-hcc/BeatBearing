@@ -35,7 +35,7 @@ boolean bState[32] = {
 
 void setup() {
 
-  Serial.begin(9600);
+  Serial.begin(19200);
 
   pinMode(A0_1, OUTPUT);                    // set outputs      
   pinMode(A1_1, OUTPUT);
