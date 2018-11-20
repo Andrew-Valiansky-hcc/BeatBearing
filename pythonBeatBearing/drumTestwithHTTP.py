@@ -24,7 +24,7 @@ while True:
     # do whatever you need to do with the data
     print(" b'start' ")
     print('here')
-    ret = cs.compile_("csound", "-o", "dac", "C:/Users/SET165-07U/Downloads/drumMachine.orc", "C:/Users/SET165-07U/Downloads/drumTest.sco")
+    ret = cs.compile_("csound", "-o", "dac", "C:/Users/Scott Foerster/Downloads/ctcsoundmaster/cookbook/examples/drumMachine.orc", "C:/Users/Scott Foerster/Downloads/ctcsoundmaster/cookbook/examples/drumTest.sco")
     if ret == ctcsound.CSOUND_SUCCESS:
         cs.perform()
         cs.reset()
