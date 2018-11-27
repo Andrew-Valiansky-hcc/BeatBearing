@@ -37,6 +37,7 @@ int[] inputArray = new int[32];
 byte[] inByte = new byte[20];
 boolean serialIsSetup = false;
 
+
 // 2nd monitors screen width
 int displayWidth = 640;                     
 // 2nd monitors screen height
@@ -75,7 +76,7 @@ TTime time = new TTime();
 
 //setto "true" to test without an Arduino, simulates data coming from the aruino
 //setto "false" if the Arduino is not present
-boolean arduinoTest= true;
+boolean TestWithOutArduino= true;
 
 //------------------------------------
 //              SETUP
@@ -101,7 +102,7 @@ void setup() {
   // Turn smoothing on. Comment out this line if the sketch is running slowly.
   smooth();                                                                          
 
-  if (arduinoTest) serialIsSetup = true;
+  if (TestWithOutArduino) serialIsSetup = true;
 
   // This for-loop sets up the "Bearing" array
   float colPos = 0;
@@ -143,7 +144,7 @@ void draw() {
   // Only start the main loop if everything is setup
   if(serialIsSetup) {
 
-    //serialLoop(); //comment out if not using arduino
+    if (!TestWithOutArduino) serialLoop(); 
 
     // Cycle through balls and draw a circle if ON
     for (int n = 0; n < bArray.length; n++) {                                          
@@ -162,6 +163,6 @@ void draw() {
     // un-comment to turn  on the grid
     //setGrid(); 
   }
-  if (arduinoTest) listenArduino();
+  if (TestWithOutArduino) listenArduino();
   
 }
