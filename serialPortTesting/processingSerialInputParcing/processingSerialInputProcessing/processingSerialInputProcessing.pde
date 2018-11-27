@@ -10,7 +10,7 @@ int[] inputArray = new int[16];
 void setup()
 {
   //String portName = Serial.list()[0]; //uncomment to see list of serial ports
-  myPort = new Serial(this, "COM11", 19200);
+  myPort = new Serial(this, "COM8", 19200);
 }
 
 void draw()
@@ -31,14 +31,14 @@ void draw()
     String ba = ba1+ba2; //now have text string of all the balls that can print
     bytes=ba.length(); // starting loop to convert the string characters into boolean
     boolean barray;
-    char chr;
+    String iarray;
     for (int n = 0; n < bytes; n++) {
-      chr = ba.charAt(n);
-      if (chr=="0") {barray=true;} 
-      else {barray=false;}
+      iarray = ba.substring(n,n+1);
+      if (iarray.equals("0")) {barray=false;} 
+      else {barray=true;}
       print(barray);
     } 
     println();
-    //println(ba);
+    println(ba);
   }
 }
