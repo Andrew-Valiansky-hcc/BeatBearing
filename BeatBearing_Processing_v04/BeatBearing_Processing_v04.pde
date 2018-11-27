@@ -28,7 +28,7 @@ int endPoint = 1024;
 boolean sequencerIsSetup = false;
 // bpm runs at half of this speed
 float bpm = 200;
-float maxCurrent = 1; //1 as in 100% of a row of balls .. current as in time.current
+float maxCurrent = 1; //1 as in 100% of a row of balls .. current as in time.current when simulating arduino
                 
 // Serial variables 
 Serial myPort;                                                                        
@@ -73,11 +73,11 @@ float xGap, yGap;
 // Create array to hold Bearings class
 TBearing[] bArray = new TBearing[ballTotal];
 TTime time = new TTime();
+float maxMetronome = 50; //must match maxMetronome in arduino sketch
 
 //setto "true" to test without an Arduino, simulates data coming from the aruino
 //setto "false" if the Arduino is not present
 boolean TestWithOutArduino= false;
-boolean TestWithArduinoButNoBeatBearingBoard= true;
 
 //------------------------------------
 //              SETUP

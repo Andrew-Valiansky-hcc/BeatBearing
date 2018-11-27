@@ -29,13 +29,14 @@ void serialLoop() {
   } else {
     // look for a - between numbers that were transmitted as strings
 
-    int[] nums = int(split(val, '-')); // now have numbers inbetween the '-' seperator sent by the arduino
-    if (nums.length==4) {
+    int[] nums = int(split(val, '-')); // now numbers inbetween the '-' seperator sent by the arduino are in nums
+
+    if (nums.length==5) {
       String ba1 = binary(nums[0]).substring(24); // turning the numbers into 101101 etc.
       String ba2 = binary(nums[1]).substring(24);
       String ba3 = binary(nums[2]).substring(24);
       String ba4 = binary(nums[3]).substring(24);
-      //String ba5 = binary(nums[1]).substring(24);
+      time.current = float(nums[4])/maxMetronome;
    
       String ba = ba1+ba2+ba3+ba4; //now have text string of all the balls that can print
       bytes=ba.length(); // starting loop to convert the string characters into boolean
@@ -45,7 +46,7 @@ void serialLoop() {
         if (iarray.equals("0")) {barray[n]=false;} 
         else {barray[n]=true;}
       } 
-      println();
+      println(time.current);
       println(val);
       println(ba);
     }
