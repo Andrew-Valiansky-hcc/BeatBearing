@@ -8,37 +8,36 @@ byte b2;
 byte b3;
 byte b4;
 
-void setup() {
-  
+
+void setup() { 
   // Open serial communications and wait for port to open:
   Serial.begin(19200);
   while (!Serial) {
     ; // wait for serial port to connect. Needed for native USB port only
   }
   randomSeed(analogRead(0));
-
-
-  
-  pinStateL = B01000000;
-  bitSet(pinStateL, 2); //pinState = B01000100 which is 68 decimal
- 
-  pinStateH = B11111111;
-  bitClear(pinStateH, 2); //pinState = B11111011 which is 251 decimal
-
 }
 
 void loop() { // run over and over
   int i;
   randNumber = random(0,47483647);
   irandNumber = (int)randNumber;
-  b = (byte)irandNumber;
-  Serial.print(pinStateH);
+  b1 = (byte)irandNumber;
+  randNumber = random(0,47483647);
+  irandNumber = (int)randNumber;
+  b2 = (byte)irandNumber;
+  randNumber = random(0,47483647);
+  irandNumber = (int)randNumber;
+  b3 = (byte)irandNumber;
+  randNumber = random(0,47483647);
+  irandNumber = (int)randNumber;
+  b4 = (byte)irandNumber;
+  Serial.print(b1);
   Serial.print("-");
-  Serial.print(pinStateL);
+  Serial.print(b2);
   Serial.print("-");
-  Serial.print(randNumber);
+  Serial.print(b3);
   Serial.print("-");
-  Serial.print(b);
+  Serial.print(b4);
   Serial.println();  
-  delay(500);
 }

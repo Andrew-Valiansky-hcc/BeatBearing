@@ -76,7 +76,8 @@ TTime time = new TTime();
 
 //setto "true" to test without an Arduino, simulates data coming from the aruino
 //setto "false" if the Arduino is not present
-boolean TestWithOutArduino= true;
+boolean TestWithOutArduino= false;
+boolean TestWithArduinoButNoBeatBearingBoard= true;
 
 //------------------------------------
 //              SETUP
@@ -102,7 +103,7 @@ void setup() {
   // Turn smoothing on. Comment out this line if the sketch is running slowly.
   smooth();                                                                          
 
-  if (TestWithOutArduino) serialIsSetup = true;
+  if (TestWithOutArduino) serialIsSetup = true; else serialSetup();
 
   // This for-loop sets up the "Bearing" array
   float colPos = 0;
@@ -124,6 +125,7 @@ void setup() {
       rowPos++; 
     }    
   }
+
 }
 
 
@@ -143,7 +145,6 @@ void draw() {
 
   // Only start the main loop if everything is setup
   if(serialIsSetup) {
-
     if (!TestWithOutArduino) serialLoop(); 
 
     // Cycle through balls and draw a circle if ON
@@ -152,7 +153,6 @@ void draw() {
       bArray[n].drawRing();
       bArray[n].drawOnOff();
     }
-    print("test");
     // update time
     time.update();
     
@@ -163,6 +163,6 @@ void draw() {
     // un-comment to turn  on the grid
     //setGrid(); 
   }
-  if (TestWithOutArduino) listenArduino();
+  if (!TestWithOutArduino) listenArduino();
   
 }

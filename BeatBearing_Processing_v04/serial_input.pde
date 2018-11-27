@@ -6,8 +6,8 @@ void serialSetup()
   
   // set the serial input
   // run this program once, and then copy and paste from the list printed out
-  myPort = new Serial(this, "COM7", 19200);
-  
+  myPort = new Serial(this, "COM11", 19200);
+
   // serial is now set up
   serialIsSetup = true;
 }
@@ -28,23 +28,27 @@ void serialLoop() {
      //don't do anything if a null
   } else {
     // look for a - between numbers that were transmitted as strings
+
     int[] nums = int(split(val, '-')); // now have numbers inbetween the '-' seperator sent by the arduino
-    String ba1 = binary(nums[0]).substring(24); // turning the numbers into 101101 etc.
-    String ba2 = binary(nums[1]).substring(24);
-    String ba3 = binary(nums[1]).substring(24);
-    String ba4 = binary(nums[1]).substring(24);
-    String ba5 = binary(nums[1]).substring(24);
- 
-    String ba = ba1+ba2+ba3+ba4; //now have text string of all the balls that can print
-    bytes=ba.length(); // starting loop to convert the string characters into boolean
-    String iarray;
-    for (int n = 0; n < bytes; n++) {
-      iarray = ba.substring(n,n+1);
-      if (iarray.equals("0")) {barray[n]=false;} 
-      else {barray[n]=true;}
-    } 
-    println(barray);
-    println(ba);
+    if (nums.length==4) {
+      String ba1 = binary(nums[0]).substring(24); // turning the numbers into 101101 etc.
+      String ba2 = binary(nums[1]).substring(24);
+      String ba3 = binary(nums[2]).substring(24);
+      String ba4 = binary(nums[3]).substring(24);
+      //String ba5 = binary(nums[1]).substring(24);
+   
+      String ba = ba1+ba2+ba3+ba4; //now have text string of all the balls that can print
+      bytes=ba.length(); // starting loop to convert the string characters into boolean
+      String iarray;
+      for (int n = 0; n < bytes; n++) {
+        iarray = ba.substring(n,n+1);
+        if (iarray.equals("0")) {barray[n]=false;} 
+        else {barray[n]=true;}
+      } 
+      println();
+      println(val);
+      println(ba);
+    }
   }
   
   // Mapping between serial input (barray) and ball position (bArray.on)
