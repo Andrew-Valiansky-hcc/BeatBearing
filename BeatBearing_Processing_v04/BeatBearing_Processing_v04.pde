@@ -28,7 +28,7 @@ int endPoint = 1024;
 boolean sequencerIsSetup = false;
 // bpm runs at half of this speed
 float bpm = 200;
-float maxCurrent = 1; //1 as in 100% of a row of balls .. current as in time.current
+float maxCurrent = 1; //1 as in 100% of a row of balls .. current as in time.current when simulating arduino
                 
 // Serial variables 
 Serial myPort;                                                                        
@@ -36,6 +36,7 @@ byte[] inBuffer = new byte[20];
 int[] inputArray = new int[32];
 byte[] inByte = new byte[20];
 boolean serialIsSetup = false;
+
 
 // 2nd monitors screen width
 int displayWidth = 640;                     
@@ -72,10 +73,11 @@ float xGap, yGap;
 // Create array to hold Bearings class
 TBearing[] bArray = new TBearing[ballTotal];
 TTime time = new TTime();
+float maxMetronome = 50; //must match maxMetronome in arduino sketch
 
 //setto "true" to test without an Arduino, simulates data coming from the aruino
 //setto "false" if the Arduino is not present
-boolean arduinoTest= true;
+boolean TestWithOutArduino= false;
 
 //------------------------------------
 //              SETUP
@@ -101,7 +103,7 @@ void setup() {
   // Turn smoothing on. Comment out this line if the sketch is running slowly.
   smooth();                                                                          
 
-  if (arduinoTest) serialIsSetup = true;
+  if (TestWithOutArduino) serialIsSetup = true; else serialSetup();
 
   // This for-loop sets up the "Bearing" array
   float colPos = 0;
@@ -123,6 +125,7 @@ void setup() {
       rowPos++; 
     }    
   }
+
 }
 
 
@@ -142,8 +145,7 @@ void draw() {
 
   // Only start the main loop if everything is setup
   if(serialIsSetup) {
-
-    //serialLoop(); //comment out if not using arduino
+    if (!TestWithOutArduino) serialLoop(); 
 
     // Cycle through balls and draw a circle if ON
     for (int n = 0; n < bArray.length; n++) {                                          
@@ -151,7 +153,6 @@ void draw() {
       bArray[n].drawRing();
       bArray[n].drawOnOff();
     }
-    print("test");
     // update time
     time.update();
     
@@ -162,6 +163,6 @@ void draw() {
     // un-comment to turn  on the grid
     //setGrid(); 
   }
-  if (arduinoTest) listenArduino();
+  if (!TestWithOutArduino) listenArduino();
   
 }
