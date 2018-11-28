@@ -6,7 +6,7 @@ void serialSetup()
   
   // set the serial input
   // run this program once, and then copy and paste from the list printed out
-  myPort = new Serial(this, "COM11", 19200);
+  myPort = new Serial(this, "COM10", 19200);
   
   // buffer 6 bytes at a time
   myPort.buffer(6);
@@ -197,7 +197,7 @@ and put them in the variable time.current */
   time.current = time.current + 0.01; //change the incrementing value change line speed
   if (((time.current) > (maxCurrent))){
     time.current=0.0;
-    float randomBarray;
+   /* float randomBarray;
   
     for (int n = 0; n < bArray.length; n++) {
       randomBarray = random(-1,1);
@@ -207,6 +207,6 @@ and put them in the variable time.current */
           bArray[n].on = false;
       }
   
-    }
+    }*/
   }    
 }

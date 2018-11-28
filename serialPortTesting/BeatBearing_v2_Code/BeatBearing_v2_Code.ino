@@ -179,6 +179,6 @@ void loop(){
   //delay(2000);
   Serial.print("f: ");
   Serial.println(stopByte);
-  delay(2000);
+  delay(50);
   
 } 
