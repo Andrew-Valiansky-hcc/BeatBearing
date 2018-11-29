@@ -1,26 +1,6 @@
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(10, 11); // RX, TX
 
-//don't know why these variables are here
-void beatBearing();
-void beatBearingCode()
-{
-  //Byte Declarations 
-  byte byteOut1 = B00000000;
-  byte byteOut2 = B00000000;
-  byte byteOut3 = B00000000;
-  byte byteOut4 = B00000000;
-  byte byteOut5 = B00000000;
-  byte stopByte = B11111111;
-  
-for (int a = 0; a < 32; a++) 
-{  // first shift all old values up
-    for (int b = 7; b > 0; b--) 
-    {
-      stateMatrix[a][b] = stateMatrix[a][b-1];
-    }
-}
-
 //these variables are associated with the muxes ... can not use 32 wires ... using 10 instead
 int A0_1 = 2;  // declare output pins
 int A1_1 = 3;
@@ -69,7 +49,7 @@ byte b4;
 byte b5;
 int metronone;
 int maxMetronome = 50; //must match maxMetronome in processing and python
-bool noBeatBearingBoard = true; //use this to generate random numbers if the beatbearingboard is not attached
+bool noBeatBearingBoard = false; //use this to generate random numbers if the beatbearingboard is not attached
 
 void setup() 
 { 
@@ -120,7 +100,18 @@ void loop()
     } 
     else //this actually looks for balls on the beatbearingboard and computes b1,b2,b3 and b4 without random numbers
     {
-
+      // stateMatrix stores last 8 positions of each ball 
+      // begin by moving ball value from 7<=6, now 6 is in 7 and 6, old 7 is lost
+      // then move ball value from 6<=5 now, old 6 is in 7, old 5 is in 6  and 5 ....
+      // continues until 1<=0, old 0 is put in 1, and now 0 is ready to be overwritten
+      // by new look at the balls
+      
+      for (int a = 0; a < 32; a++) {                                
+        for (int b = 7; b > 0; b--) {
+         stateMatrix[a][b] = stateMatrix[a][b-1];
+        }
+      }
+      
       // now get all 32 ball states from the mux   
       for (long count = 0; count < 16; count++) 
         { 
@@ -133,12 +124,12 @@ void loop()
           digitalWrite(A1_2, (count >> 2) & 1);
           digitalWrite(A2_2, (count >> 1) & 1);
           digitalWrite(A3_2, (count >> 0) & 1);
-      
+          // now have information to put ball information into position 0 of the "ball" history
           stateMatrix[count][0] = analogRead(Z_1);  // and insert new values at position 0
           stateMatrix[count + 16][0] = analogRead(Z_2);
         }
  
-        // now calculate averages
+        // now calculate averages by adding up all the ball histories
         for (int a = 0; a < 32; a++) 
         { 
           averages[a] = 0;
@@ -148,7 +139,10 @@ void loop()
           }
         }
         
-        // determine binary state using thresholds
+        // determine binary state using thresholds 3000 and 7000
+        // if ball was located in each of 8 historys, then 1023*8 = 8184
+        // so this is active low .. meaning 1 if ball is not present, 0 if is present
+        
         for (int n = 0; n < 32; n++) 
         {
           if ((bState[n] == B0) && (averages[n] < (thresholdLow))) {  // last sure value was 0 AND below low threshold
@@ -163,7 +157,7 @@ void loop()
         int stateCount = 0;
       
         // first byte
-        for (int n = 0; n < 7; n++) {
+        for (int n = 0; n < 8; n++) {
           if (bState[stateCount] == B1) {
             b1 |= (1 << n); // then set to 1;
           } else {
@@ -173,7 +167,7 @@ void loop()
         }
       
         // second byte
-        for (int n = 0; n < 7; n++) {
+        for (int n = 0; n < 8; n++) {
           if (bState[stateCount] == B1) {
             b2 |= (1 << n);  // then set to 1;
           } else {
@@ -183,7 +177,7 @@ void loop()
         }
       
         // third byte
-        for (int n = 0; n < 7; n++) {
+        for (int n = 0; n < 8; n++) {
           if (bState[stateCount] == B1) 
           {
             b3 |= (1 << n); // then set to 1;
@@ -194,7 +188,7 @@ void loop()
         }
       
         // fourth byte
-        for (int n = 0; n < 7; n++) {
+        for (int n = 0; n < 8; n++) {
           if (bState[stateCount] == B1) {
             b4 |= (1 << n);   // then set to 1;
           } else {
@@ -216,4 +210,3 @@ void loop()
   delay(10); //has to be a least 1, leaving it a zero causes processing to start dropping data
     
 }
-
