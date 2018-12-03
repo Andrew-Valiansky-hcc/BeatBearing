@@ -73,7 +73,7 @@ float xGap, yGap;
 // Create array to hold Bearings class
 TBearing[] bArray = new TBearing[ballTotal];
 TTime time = new TTime();
-float maxMetronome = 50; //must match maxMetronome in arduino sketch
+float maxMetronome = 48; //must match maxMetronome in arduino sketch
 
 //setto "true" to test without an Arduino, simulates data coming from the aruino
 //setto "false" if the Arduino is not present

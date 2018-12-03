@@ -48,8 +48,8 @@ byte b3;
 byte b4;
 byte b5;
 int metronone;
-int maxMetronome = 50; //must match maxMetronome in processing and python
-bool noBeatBearingBoard = false; //use this to generate random numbers if the beatbearingboard is not attached
+int maxMetronome = 48; //must match maxMetronome in processing and python
+bool noBeatBearingBoard = true; //use this to generate random numbers if the beatbearingboard is not attached
 
 void setup() 
 { 
