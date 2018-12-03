@@ -6,7 +6,7 @@ void serialSetup()
   
   // set the serial input
   // run this program once, and then copy and paste from the list printed out
-  myPort = new Serial(this, "COM11", 19200);
+  myPort = new Serial(this, "COM12", 19200);
 
   // serial is now set up
   serialIsSetup = true;
@@ -106,6 +106,7 @@ void serialLoop() {
    // snare
    // kick
   */
+}
 
 void listenArduino() {
   
