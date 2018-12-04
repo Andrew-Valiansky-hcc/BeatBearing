@@ -77,7 +77,7 @@ float maxMetronome = 48; //must match maxMetronome in arduino sketch
 
 //setto "true" to test without an Arduino, simulates data coming from the aruino
 //setto "false" if the Arduino is not present
-boolean TestWithOutArduino= false;
+boolean TestWithOutArduino= true;
 
 //------------------------------------
 //              SETUP
@@ -163,6 +163,6 @@ void draw() {
     // un-comment to turn  on the grid
     //setGrid(); 
   }
-  if (!TestWithOutArduino) listenArduino();
+  if (TestWithOutArduino) noListenToArduino();
   
 }

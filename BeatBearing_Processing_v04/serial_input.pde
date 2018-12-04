@@ -6,7 +6,7 @@ void serialSetup()
   
   // set the serial input
   // run this program once, and then copy and paste from the list printed out
-  myPort = new Serial(this, "COM12", 19200);
+  myPort = new Serial(this, "COM11", 19200);
 
   // serial is now set up
   serialIsSetup = true;
@@ -108,10 +108,11 @@ void serialLoop() {
   */
 }
 
-void listenArduino() {
+void noListenToArduino() {
   
   /* creating range of values that simulate what is coming from the arduino and
 and put them in the variable time.current */
+ 
 
   time.current = time.current + 0.01; //change the incrementing value change line speed
   if (((time.current) > (maxCurrent))){
