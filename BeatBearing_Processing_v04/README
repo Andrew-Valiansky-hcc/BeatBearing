@@ -1,0 +1,4 @@
+This folder contains code for processing: 
+At the moment the code runs the visual on processing and displays random balls on an imaginary board and lights up the ellipses.
+This code is pretty much completely done and there is very minimal work needed to be done.
+You may need to debug the processing code, but that is very unlikely.
