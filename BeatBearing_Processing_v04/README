@@ -2,4 +2,4 @@ This folder contains code for processing:
 At the moment the code runs the visual on processing and displays random balls on an imaginary board and lights up the ellipses.
 This code is pretty much completely done and there is very minimal work needed to be done.
 You may need to debug the processing code, but that is very unlikely.
-BeatBearing_Processing_v03 is an older version of what is in here now.
+BeatBearing_Processing_v03 is an older version of what is in here now it doesnt have key concepts that you mneed for the project.
