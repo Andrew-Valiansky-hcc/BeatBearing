@@ -1,5 +1,7 @@
 # BeatBearing
-Hello  
+
+This is the software documentation of the Howard Community College BeatBearing Project Fall 2019. More information is available on
+<a href=https://drive.google.com/open?id=17BUsjdtlKxZ1XTiiMZvftNGVOXfZ8mOC>google drive</a>. 
    
 They are in three folders: arduino, processing and python.
 
