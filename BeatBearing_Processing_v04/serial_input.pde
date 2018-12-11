@@ -98,52 +98,21 @@ void serialLoop() {
   bArray[30].on = barray[31];
   bArray[31].on = barray[27];
 
-
-  //------TEST BEAT 1------
-  // plays one beat in each row
-  // uncomment to test
   /*
+  //original instruments that are now in python csound code 
+  //exact replacement for these instruments has not been found
   // cowbell
-   bArray[6].on = true;
    // hihat
-   bArray[12].on = true;
    // snare
-   bArray[18].on = true;
    // kick
-   bArray[24].on = true;
   */
-
-
-  //------TEST BEAT 2------
-  // plays a simple beat
-  // uncomment to test
-  /*
-  // cowbell
-   bArray[5].on = true;
-   bArray[6].on = true;
-   
-   // hihat
-   bArray[9].on = true;
-   bArray[11].on = true;
-   bArray[13].on = true;
-   bArray[15].on = true;
-   
-   // snare
-   bArray[18].on = true;
-   bArray[22].on = true;
-   
-   // kick 
-   bArray[24].on = true;
-   bArray[26].on = true;
-   bArray[28].on = true;
-   bArray[30].on = true;
-   */
 }
 
-void listenArduino() {
+void noListenToArduino() {
   
   /* creating range of values that simulate what is coming from the arduino and
 and put them in the variable time.current */
+ 
 
   time.current = time.current + 0.01; //change the incrementing value change line speed
   if (((time.current) > (maxCurrent))){
