@@ -1,17 +1,20 @@
-# Python Beat Bearing Code
+# Python Beat Bearing File descrkiptions
 
-Hello  
-   
-Three or four or five different programs are being run in this first attempt to create software for the beat bearing.
+.ipynb_checkpoints --- created by jupyter when looking at Canopy Document, can delete, but will just reappear, could configure github to ignore
 
-They are in three folders: arduino, processing and python.
+_pycache_   --- same as above
 
-The actual music/drum beats are being performed by a python synthesizer called csoundQt when it is a standalone gui. When it is a processing package or module it is called ctcsound. 
+beatBearingTest-FourSounds -- standalone python program to play four instruments simulataneously, eight times
 
-There is a python (tested in 3.5) program that will execute a drumMachine test independent of any processing code. Look in the python folder. Should be able to execute from the command line.
+Beatfox.csd --- is opened by drumPerform 
+ctcsound --- is library that all python and jupyter files need to open .. haven't figured out how to use it like a normal
 
-There is a python http deamon that listens for any connection by any client and begins playing the drumtest. Connect to http://127.0.0.1:50007 .. See drumTestwithHTTP.py
+python package ... csound puts somewhere that jupyter can find it ... so have been installing csound 
 
-There is a processing client (drumTestClient.pde) that creates a connection to http://127.0.0.1:50007 automatically upon running and begins sending the word 'start'. Have not successfully parced this word. That is the next step. The connection by itself triggers the python http deamon into playing the drums. ... so can trigger with what ever browser you are using to view this ... if the python http deamon is setup. 
+drumMachine.orc .... is an orchestra of 5 instruments ... used three of them in beatBearingTest-FourSounds -- it is paired with
+drumTest.sco ... the score .. these could be hacked ... 16 score files could be created and played for the 16 possible combinations
+of a column of four balls
 
-The processing files also contain the code for makeing the ellipses and the line that moves across the screen. The line is controlled by the metrenome in arduino. Also it contains code for random ball location to light up (this was done, because the inputs from the board were not being read by the arduino when the balls were being moved around on the board)
+drumPerform .. canopy document that plays both Beatfox (which has the orchestra and score built into it) and the pair of drumMachine.orc and drumTest.sco
+
+pySerialToBinary ... listens to final arduino code, produces a series of 5 bytes represent 32 balls and metronone information
