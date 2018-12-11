@@ -4,21 +4,8 @@
 //------------------------------------
 // Peter Bennett
 // pete@petecube.com
-//
-// Homepage:     www.sarc.qub.ac.uk/~pbennett
-// Blog:         petes-sonic-art-research.blogspot.com
-// BeatBearing:  www.beatbearing.co.uk
-//------------------------------------
-// Please refer to the Forum at www.beatbearing.co.uk 
-// before emailing me with questions!
-//
-// Please remember that this software was written as a prototype, 
-// and may take some tweaking to work with your specific hardware!
-//------------------------------------
-// FOR TESTING WITHOUT HARDWARE, please uncomment the test beats provided in the 'serial_input' tab
-//------------------------------------
-
-// Import libraries. Make sure you have installed OscP5 and ProMIDI
+// Howard Community College fall 2018
+// Original source www.beatbearing.co.uk 2009
 
 import processing.serial.*;
 
