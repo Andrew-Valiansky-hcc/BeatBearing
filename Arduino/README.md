@@ -34,10 +34,10 @@ it instead uses random numbers to create 32 random ball positions
 
 ----------------------------------------------------------------------------------------------
 the arduino code sends out 5 bytes seperated by an ascii hypen so that the serial output looks like
-54-163-73-209-40
-
-The first four numbers are 32 bits representing 32 ball positions.
-The last number should increment to the maxMetronome value then start over at 0.
+54-163-73-209-40  
+  
+The first four numbers are 32 bits representing 32 ball positions.  
+The last number should increment to the maxMetronome value then start over at 0.  
 -----------------------------------------------------------------------------------------------
 
 Next step is to get it working with the mux board
