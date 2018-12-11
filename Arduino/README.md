@@ -23,7 +23,9 @@ a 5th byte is created from a counter with an arbitrary maximum ... the metronome
 
 the arbitrary maximum needs to be adjusted to set the metronome upper limit
 
-this is what can be manipulated once a pot is created
+this is what can be manipulated once a speed control knob is added
+
+no conception or design of a volume control has been integrated into the software
 
 the maxMetronome value, once adjusted needs to be changed in the processing and python code
 
