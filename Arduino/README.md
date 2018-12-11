@@ -37,7 +37,9 @@ the arduino code sends out 5 bytes seperated by an ascii hypen so that the seria
 54-163-73-209-40  
   
 The first four numbers are 32 bits representing 32 ball positions.  
+  
 The last number should increment to the maxMetronome value then start over at 0.  
+  
 -----------------------------------------------------------------------------------------------
 
 Next step is to get it working with the mux board
