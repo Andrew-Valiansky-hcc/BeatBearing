@@ -1,3 +1,5 @@
+//Howard Community College fall 2018
+// Original source www.beatbearing.co.uk 2009
 #include <SoftwareSerial.h>
 SoftwareSerial mySerial(10, 11); // RX, TX
 

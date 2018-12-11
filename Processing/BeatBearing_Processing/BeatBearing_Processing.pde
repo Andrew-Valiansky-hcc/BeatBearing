@@ -1,9 +1,3 @@
-//------------------------------------
-// BeatBearing - Tangible Rhythm Sequencer
-// MAKE vol.17
-//------------------------------------
-// Peter Bennett
-// pete@petecube.com
 // Howard Community College fall 2018
 // Original source www.beatbearing.co.uk 2009
 

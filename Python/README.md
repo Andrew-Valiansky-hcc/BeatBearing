@@ -19,5 +19,9 @@ drumPerform .. canopy document that plays both Beatfox and the pair of drumMachi
 
 pySerialToBinary ... listens to final arduino code, produces a series of 5 bytes represent 32 balls and metronone information
 
-Next Steps: turn drumTest.sco into 16 files, modify beatBearingTest so it sounds reasonable, then merge with pySerialToBinary.
+Next Steps: 
+	turn drumTest.sco into 16 files, 
+	modify beatBearingTest so it sounds reasonable
+	merge with pySerialToBinary
+	
 
