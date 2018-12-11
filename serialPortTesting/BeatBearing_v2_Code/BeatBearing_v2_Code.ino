@@ -179,10 +179,3 @@ void loop(){
   }
 
   // send the values over serial to Processing
-  Serial.print(byteOut1, BYTE);
-  Serial.print(byteOut2, BYTE);
-  Serial.print(byteOut3, BYTE);
-  Serial.print(byteOut4, BYTE);
-  Serial.print(byteOut5, BYTE);
-  Serial.print(stopByte, BYTE);
-}
